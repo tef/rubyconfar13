@@ -1,401 +1,169 @@
-==============================================================
- programming is terrible. lessons learned from a life wasted.
-==============================================================
-:Author: tef
+=========================================================================
+programación es terrible. lecciones aprendidas de una vida desperdiciada.
+=========================================================================
 
-..
-	outline
+.. outline:
 
 	introduction
 	good and bad programmers
-	how culture dictates code
-	how we destroy learners
+	how culture dictates code ?
+	how we undermine learners
 	learning to be good
-	
+	code club, computer anonymous
 
 
-Introduction
-============
 
-SLIDE:: intro slide, name, talk title
+Before I start, let me give you the standard disclaimer. These are my opinons, they might not reflect reality. Although some have found them useful, they've often got me into trouble. 
 
-Hello. I am tef, and I am a bad programmer. 
+Hi, my name is tef, and I am a bad programmer.  Before I make fun of other people,
+I should really start with myself:  I'm a bad programmer, and I've written a lot of bad code.
 
-I started programming because of a desire to take things apart and see how they worked. The more I learn about programming the more I am surprised *that* things work.
+The next slide carries a health warning. 
 
-I am not a very good programmer. I forget to write tests, my documentation is sparse, and i'm pretty apologetic at any code review. I also write bugs. Lots of bugs. I have pretty high standards in the naïve belief that it is possible to write software that sucks much, much less than what we put up with.
+SLIDE: test = test.test.test
 
+This is an actual line of production code I wrote. I finally had the time to clear it up, a couple of months later, but when my co-worker saw this their first instinct was to make fun of me on the internet. Then they saw the comment, and realised that he couldn't make me feel any worse.
 
-SLIDE::
-	good and bad programmers
-	how culture dictates projects
-	indoctrinating vs learning
-	being successful vs being good
+SLIDE: soliphists, collaboative.
 
-In as much as I'm here to complain, I am also offering survival tips and hope. 
+If I'm a bad programmer, what makes a good one? I'm not really sure. At a previous job I wrote tests, I wrote documents, and I built a system which could be changed without editing files in production. 
 
-I'm here to talk to you about mistakes I've made, mistakes other people make, and some of the mythology around programming. It's much more about the people than the code. I'll be taking questions at the end.
+Another programmer didn't talk to people, wrote their own libraries, and fixed bugs by creating nnew ones. (Maybe the hash table story, maybe the flight prices story). Management loved them. Bugs were closed quickly and features were implemented quickly. No-one realised that for every bug they closed, two new were opened.
 
-A standard disclaimer applies. This is my opinion and doesn't represent my employer, or reality.
+I was meant to work over christmas, but they cancelled it as it didn't seem to crash, and when I came back to work I was made redundant. I'd trained my team, I'd documented the code, and I'd even documented the build system.
 
-SLIDE:: YMMV. HTH. HAND.
+They on the other hand, got promoted—No one could replace them, no-one else would touch their code, and by being useless at their job they'd become irreplaceable. 
 
-Some people have found my opinions useful, but for me they normally get me into trouble.
+My old employer aren't the only ones to be confused by what makes a good, and what makes a bad programmer. People on the internet are wrong too.
 
-I'm also wrong a lot of the time. That didn't seem to be a roadblock for the majority of people who write about programming on the internet.
+SLIDE: My language
 
-Let's begin with people being wrong on the internet. It's a good place to start.
+One famous lisp programmer wrote an essay asking why other people aren't as smart or as clever as they are, and termed it the blub paradox. He argued that programming languages are a form of 1984's newspeak, a limiter to thought. Sure enough, some programming languages are bad, but then again, some programming languages let you write your own bad language inside, at the expense of everyone else.
 
+Meanwhile, the company who bought his lisp code asked "Why can't we find anyone to maintain this". His code was very clever, so clever in fact that they couldn't find anyone else to understand it, and decided to re-write it in perl to make it cleaner and maintainble by mere mortals.
 
-Good and Bad Programmers
-------------------------
+Then again, the person who came up with this argued that terrorist attacks wouldn't happen if planes were more like lisp, which at once demonstrated an ignorance of terrorism and computer security.
 
-..
-	me/not me, language choice, political choice, 10x myth, penis having
-	make mistakes, optimism, pebkac
+(You can still find it on his website, he's hidden it away, but his immediate reaction upon seeing the tragedy of september 11, 2001 was "I better tell people to use lisp!".)
 
-SLIDE:: my code is better than your code (sing it)
 
-Many blogs claim to elcuidate a dichotomy of programmers - good and bad. Upon careful inspection, most of them turn out to actually dictate the following types:
+SLIDE: My Poltics
 
-SLIDE::
+Another famous loudmouth on the internet said "Good programmers are liberal, bad ones are conservative", or the other way around. He decided that the best way to talk about code style was to use terms even less people understand, and transformed tabs verses spaces into a political flame war.
 
-    A. Programmers who are like me. 
-    B. Programmers who are not like me.
+Why do we do this? Everyone likes a simple answer to a hard question, and when it's emotionally charged too, you get far more attention.
 
+SLIDE: Men/Not Men
 
-The assertion is that if you cargo cult their personality, you too can be a successful programmer. Sometimes it is more veiled
+More recently, another loud mouth, Dave Winer, asked "Why aren't there more women in computing", and instead of doing some basic research, he went for awful psychology. He suggested that because cavemen had gender divisions, thus programming did.
 
-SLIDE::
+The sheer ignorance of history in his statement was astonishing. The first computers were women, rooms of them doing calculations by hand. The first programmers were women too, because it was seen as a low status job. It also turns out the myths about cavemen "men did hunting, women looked after children" might be more due to our sexist cultural assumptions. Ruby itself owes a dbet of gratitude to Adele Goldberg and Barbra Lipkov, pioneers of earlier languages.
 
-    A. Programmers who use my favourite language
-    B. Programmers who do not use my favourite language
+Although they opened with "I don't really know what I'm talking about", winer made no effort to learn, and is currently saying "I WAS JUST OPENING A DEBATE, YOU KNOW, ASKING IF WOMEN ARE PEOPLE, NO HARM DONE EH". If you find yourself saying "I'm just starting a debate", maybe you should probably do your research, and even more likely apologise.
 
-You may have heard this as 'the blub paradox'. 
+SLIDE: Genius/Normal
 
-ASIDE::
- 
-	the programmer who wrote this, left such a mess of lisp code that the
-	company he sold its product to, switched to perl. they couldn't find anyone
-	that could maintain his code.
+And you don't have to search far and wide to find actual research, for example "Is Math a Gift", dweck sets out to see if belief has an effect. Many teachers either say or assume that mathematics is a genetic ability, and so did the students.
 
-	yes. perl was more maintainable.
+What happened is that boys did better than girls. When they went to a school and changed the course work, to explain that it isn't something you're born with, it is something you work for. What happened is remarkable. The girls did just as well as the boys, and not only that, they both outperformed the original group.
 
-	(he also claimed that if planes worked like lisp, 2001-09-11 wouldn't happen)
+Believing that ability is something you are born with, only encourages you not to try. For those stereotyped as being less capable than white men, it lets them run away from failure.
 
-	(I am not making this up, he really said this)
+SLIDE: 10x Programmer/10 Programmers
 
+"Of course 10x programmers exist, I'm one of them". Sure enough there are some people like fabrice bellard, who seem to perform miracles, but the belief that some programmers are superhumans seems pervasive as ever.
 
-Sometimes they just *imply* good and bad, without saying it outright.
+Originating in a study on 12 people, for 30 minutes, working on punch cards versus working on interactive machines, it's been repeated over and over. Sometimes it takes the form that one programmer can outperform a team of 10 people, and turning into the myth of the lone genius.
 
-SLIDE::
+Almost every line of code you use today has been written, edited and mantained by a group of people. Although a very small and focused team will have less communication overhead, they will never have the same breadth of experience as a larger, more diverse team.
 
-    A. Programmers who share my political beliefs
-    B. Programmers who do not share my political beliefs
+Really what "10x programmer" means is this "We want to hire someone to do 80 hour weeks for almost no money". Penny Arcade recently advertised for a "Strong, Experienced Programmer" to do Four jobs, for under market rates for one.  They said "We don't want to give you more office, we want to make the office more fun to be in", which really means "Why should we pay you more? We'll never let you leave the office".
 
-This one was spectacularly notable. It mashed everything into a simplified left/right view of politics.
-And now programmers who don't understand programming are using political terms they don't understand
-too. 
+Really when a programmer talks about what makes a good programmer, and what makes a bad programmer, they really mean this:
 
-Why do we do this?  It’s easy and gets blog hits. Everyone loves a simple answer to a complex problem. Especially
-when the two choices are emotionally charged. 
+SLIDE: Me/You
 
-SLIDE:: 
+"Repeat my mistakes and you will be as successful as I am", which may work if you're born into the same country, family, and wealth they are.
 
-	10x
+The reality is we don't know how to tell the difference between good and bad programmers, and you only have to look at how we interview to see it.
 
-Better still, when the good programmers  have magical super powers. You'll hear terms 
-like rockstar, ninja, founder, entrepreneur, all used in the same pre-pubecsent machoism that our industrying
-is drowning in.
+SLIDE: Manhole cover
 
-Unfortunately, it's total bollocks. The 'some programmers are crazily more productive than others' comes
-from a study, on batch processing vs interactive programming, in 1960.  On twelve people. In a half hour session.
+Some people advocate looking at github profiles (which tells you one thing: they can use github), or stack overflow (which tells you they're good at technical writing), or worse, brainteaser puzzles. 
 
-We've been repeating this myth endlessly. it's destructive. it's either repeated by idiots who believe
-they have nothing to learn from others, or repeated by learners to explain why they shouldn't try to learn.
+Can anyone guess what you should do if you get asked a puzzle question in an interview?
 
-*pause*
+SLIDE: LEAVE
 
-Really, when managers talk about 'A programmers' they mean people who will work long hours for little to no pay. 
+That's right. Despite working in programming for almost a decade, I've yet had to move a mountain. The real problem with these is not that they are irrelivant, but they are wrong. A study called "The Wasson-Crick Selection Task" showed that problem solving ability is not an abstract ability, but often linked to the domain of the problem.
 
-*pause*
+The selection task is an experiment to see if people are good at "contrapositives", or "We look for things that confirm our beliefs, but not for ones that show they are wrong"
 
-The worst sort of dichotomy is this
+They asked groups to solve a puzzle about playing cards, and another to solve the same problem, but this time about a social environment.  Most failed the playing cards, and most got the social problem right. 
 
-SLIDE::
+How you frame a problem impacts how you solve it. Asking people to solve puzzles outside of programming doesn't tell you if they'll write maintainable code. 
 
-	A. Programmers with a penis
-	
-	B. Programmers without a penis.
+If you get a programming puzzle, do ask "Have you ever used this in production", it'll embarass the interviewer, and it's fun. You might get told you're not a cultural fit for a company though.
 
-If any of you think this. Kill yourself now. This is not a joke. Just fuck off and die.
+We can't easily tell the difference between good and bad programmers. We can't easily tell the difference between good and bad code either, or even good and bad practices.
 
+SLIDE: Code Reflects Culture.
 
-Studies (CITE) have shown, when you tell a group there is a genetic component to ability, the performance
-goes down. People use this as a reason to avoid trying to improve, on both sides. 
+Although to many, code is simply communication, it may come as a surprise that how we structure code is influenced by how we structure teams. If you get four people to write a compiler, you'll find four steps to write it. If you have one service that does everything, You'll find one programmer who does everything. This idea was first introduced as "Conways Law".
 
-If you believe in this divide in any way, it is highly likely that you are not only a terrible programmer, you are a terrible
-person too.
+If you want to get software right, you have to start with people. Software is social before it is technical. I don't mean finding the right people, I mean building the right environment for people. You don't need to hire the best, you just need to let them learn and grow.
 
-I think that once we move past the issues like race, gender, within programming  we might have a chance
-of handling tabs vs spaces.
+Unfortunately, we're as good as helping people learn to code as we are at writing code: We still have a lot to learn.
 
-*pause*
+SLIDE: Teaching our mistakes.
 
-so, are there two types of programmers? Probably not, but if I was to try, i'd say::
+If you ask any programmer how you should learn to program, I can tell you what they'll say. "Repeat my mistakes exactly.". Most teaching is concerned with nostalgia, learn what I did, how I did it, with no attempt at making it less awful for beginners.
 
-SLIDE::
+Sometimes they will tell people to learn C, because it is hard, and character building. Even though they learned a bit of shell scripting before, they think it's best to start by teaching what is practical. Similarly, they'll tell you to learn Java or C#, because it will help you get a job. 
+Despite getting into programming as a hobby, programming to them is now just a career. With no room for experimentation, play, or fun. When you ask them how to learn, you should copy them exactly, but if you learn for the same curiosity they had, they get mad.
 
-    A. Programmers who know they will make mistakes
-    B. Programmers who think they will not make mistakes
+But to me, programming is more than just making a startup, or automating bureacracy, code is a medium for art, science, design too, and a way of not only communicating ideas, but exploring them.
 
-I'm a little of column A an d a little of column B.  Sometimes I refuse to try, and sometimes I refuse to learn.
+SLIDE: Mindstorms
 
-Really, the biggest mistake I make in programming is optimism.
+Other subjects suffer too: in mathematics, instead of being about problem solving, it's about memorising formulas and solutions other people have worked out. Learning isn't really fun when you don't get to be creative about it.
 
-SLIDE:: 'you would think that'
+But maybe I'm also guilty of nostalgia too. I learned to program in LOGO, with turtle graphics. LOGO wasn't just about learning to code, but giving children a place to explore, and tools for thinking.
 
-Optimism is the classic mistake programmers make, but it is often necessary because the task is so daunting.
+Back in the 60's one young coder was struggling with english, she couldn't work out why some words were nouns, and some were verbs. They set her a challenge "Write a setence generator", and so she sat down and hacked away at the problem.
 
- I am yet to meet a programmer who didn't chronically underestimate the time it takes to work.
+After making some typical programmer faces, she got her code to work and leaped around the classroom, yelling "I KNOW WHAT A VERB IS".
 
+This is one of the core ideas around constructive learning: Don't give them answers, give them tools and let them think about problems. This is the main theme of Seymour Papert's book "Mindstorms: Children, Computers, and Powerful ideas", a wonderful manifesto for computer aided learning.
 
-Programmers like to complain, often starting “You would think that...” — Underlying this is the optimism that things can be better (Some like to think that they could have done better). Call me a cynic, but after years of fixing the bugs in software we are still no closer to fixing the behaviours in humans that propagate them.
+We shouldn't be teaching children to code, we should be teaching them to think, and software is one of many powerful tools to help them.
 
-SLIDE:: PEBKAC
+To me, Programming is the ultimate sandbox game, and the computer is a lever long enough to move the world.  I can't wait to put it in the hands of the next generation.
 
-The mistakes we make are in part due to the environments we work in. It is just as important to find out why the bug got written as well as how to fix it, if we are to have any hope of learning from our mistakes.
+Despite promising you cynicism, I'm actually an optimist. You can tell because I say the following magic words.
 
-Software defects aren't endemic, they're systematic.
+SLIDE: "You would think that"
 
+"You would think that", starts many sentences, and underlying it is a hope that technology could be better, implemented well, and mostly bug-free. As much as I'm bitter about how we code and how we teach, I know we can do better, and without some naievety and optimism, I wouldn't even begin to try changing the world.
 
-Culture Dictates Code
-=====================
+SLIDE: Code Club
 
+Which is my current job: Changing the world, one child at a time. We're trying to take Paperts Dream and make it happen. Clare and Linda founded code club to get volunteers into schools to help childen to learn about code through play. It's been eighteen months and they've gotten over onethousand four hundred clubs in the UK, and our coursework has been translated into many languages and used around the world. 
 
-SLIDE::  quote Melvin Conway:
+We're still working on antartica. Linda will be talking about CodeClub tomorrow, so I don't want to spoil her talk, but I'd like to mention something else I've tried to change things.
 
-	    ...organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations
+SLIDE: Computer Anonymous
 
-Essentially the software reflects the social structures of the teams that built it. If you need service orientated architecture, your teams should be structured around providing services to other teams, as opposed to delivering software or code. 
+Two months ago, a friend felt rejected from her local ruby group. Too much dudebros, and a some elitism and arrogance going unchecked.
 
-This raises its head in other ways - ‘God’ objects are often caused by ‘God’ programmers. People on the team who hoard responsibility for parts of the code and amass them into a lump. Frequently other programmers make small offerings to the object, and ensure that their code worships at its feet. 
+So we said we'd go and make our own meetup, with a code of conduct, and a manifesto. We wanted to make an inclusive meeting, and especially for those who felt alienated by technology, or that they just weren't good enough to join in.
 
+Within a week we had other meetings in germany and america. Before we'd even had our first meeting we'd had another 5. Today we have three different london meetups, 7 in north america, and a number around europe, uk and canada.
 
-It's not just individuals, sometimes, we make mistakes as a group, too.
+SLIDE: “Dude, Sucking at something is the first step to being sorta good at something”
 
+I know I'm a bad programmer, but that hasn't stopped me. I'm probably not the best at teaching kids, but I'm giving it a shot anyway. 
 
-SLIDE:: The Bike Shed
+My only hope is not making the world a better place, but being an example to others. I don't want people to repeat my mistakes, I want the next generation to make their own. 
 
-At a design meeting for a nuclear power plant, more time will be spent discussing the colour of the bike shed, than the technical details of the plant. 
-The bike shed example first appeared in ‘Parkinson's Law’, under the ‘Law of Triviality’:
-
-To be able to contribute to the techincal discussion, domain expertise is a requirement. To contribute to the bike shed, little or no expertise is required. No matter how well designed the bike shed, someone will always have a change in mind, and arguments will ensue.
-
-The bike shed example first appeared in ‘Parkinson's Law’, under the ‘Law of Triviality’:
-
-SLIDE:: “The time spent on any item of the agenda will be in inverse proportion to the sum involved.”
-
-People love to contribute and feel that they have taken part in a discussion. As the barrier to entry lowers, more and more strive to take part in the discussion. Bikeshedding is the process of arguing over trivia, and how informed discussion is drowned in opinion. When everyone can contribute, nothing gets decided. 
-
-
-SLIDE: The classic ‘Group Project‘
-
-You have a group of friends. You all want to do something *together*. Everyone pools their ideas and then we'll all work on it.
-
-Except if any of the ideas were motivating enough, someone would be working on them already. Effectively you're collating all the ideas that people think would be cool if someone else did it for them.
-
-With no real individual desire to work, the project flounders. Collaboration tends to happen when someone leads by example. 
-
-Leading by example doesn't mean coming up with ideas.  Ideas are cheap, plentiful and worthless. Ideas stand as a multiplier of work put in. Only with effort do ideas bring value. Even not so great ideas are successful with enough work. 
-
-Sometimes, ideas is all the group has, and then you get...
-
-SLIDE: Goon Project
-
-Enthusiasm didn't get us to the moon, but we've got 18 logos and a wiki. A fatal group project popluated by idea guys and all discussions revolve around the colour of the bike shed.
-
-When a lot of people want to solve a problem and don't know how, much of the bad ideas above surface and not much else. The most common cause of this is video games. Everyone has played them and not very many people have written them. A lot of enthusiasm goes a long way. Mostly "What should we call it", and "I can make a better logo"
-
-
-SLIDE:: waterfall
-
-It isn't just the individuls, and  structures within teams, the way in which we approach software developmet causes faults too. The Waterfall methodology was introduced as a strawman, and taken seriously and still used today. Mostly because it is easier to bill clients for than actually a good way to bill software.
-Project Management is often an attempt to control reality rather than observe it, and react to it. Milestones are handed down upon high with little room for error, because maybe we'll get it right *this time*.
-
-
-SLIDE:: Manhole cover
-
-It is also evident in  how the company acquires workers. We struggle with finding good
-programmers Often, companies resort to brainteases. I am asked ' What should I do when I am confronted with a brainteaser question in an interview?'
-
-SLIDE:: CYA LATER SHITLORDS
-
-Leave
-
-ASIDE::
-
-	There are a couple of experiments that show the context and framing of a problem have a massive effect on how people try and solve it (Wasson Selection Task). Brainteasers are not very effective at determining your ability beyond brainteasers. 
-
-	Unless you’ve being hired as a quiz show host, brainteasers in an interview are mostly to make the candidate panic and see how willing you are to put up with bizzare or ludricrous requests.
-
-	I’ve heard people justify them on this basis alone, because the job often involves bizzare or ludricrous requests from management, and they don’t like hearing “no”. 
-
-	People tell me it happens at Facebook, they read it in some tech journalism.  The same articles were written about Google. Before then it was Microsoft.  Brainteasers make for an easy filler article, and so it’s quite a popular urban myth.
-
-	It is a very effective warning sign of a terrible job. 
-
-
-SLIDE:: cultists/occultism ?
-
-Programming is not a science or an art, it’s rituals and cargo-culting at best. Our best practices amount to old wives tales from people who learned to program on punch cards, and we barely test our software, let alone our precious methodologies. At best, It's a craft.
-
-Programming by and large is learned from maintaing existing software — fixing, testing, and adapting it, not creating it. That it not to deny the value of experimental programming, the adage ‘Top Down the second time’ still rings true. Often a prototype is needed to explore the idea, and understand the consequences of it. It is from maintaining this protoype you learn new approaches.
-
-We don't just write bad code, we manage it badly and teach it badly.
-
-
-teaching
---------
-
-SLIDE::  teaching
-
-Two largest influences on how programming is taught today are: nostalgia, and the way in which the teacher learns best. It’s a cargo cult approximation to education - do what I do and you will learn what I did.
-	
-
-Much of the discussion of education focuses heavily on “what students must know”, rather than more obviously “What do students want to learn, and how do they learn?”. A vital skill of the employed programmer is a willingness to learn on their own, and to explore. We need to encourage this from the outset, instead of dictating their course.
-
-That said, a little guidance and help goes a long way.
-
-This is more obvious in adult education - a teacher knows best attitude rarely earns you the respect of the pupils. I’ve learned much of what I know about programming by helping others gain an understanding. The teacher needs to cater to the pupils needs.
-	
-For a start, I’d like to see more appreciation for learning styles - the notion that some people prefer exercises to books, and some prefer talking to pictures. Many believe that the way in which you learn is the best way for everyone to learn. Most teachers will only teach in the way that they prefer, rather than teaching in a way that helps the students.
-	
-
-If someone asks you to teach them to program, ask them what they want to create, and then point them in the right direction.
-
-
-SLIDE::
-	learning through play
-
-I encourage people to find a sandbox to play in. Be it a 2d environment with a turtle drawing pictures, or a musical environent, somewhere you can add elements and program them, as well as experiment or change existing programs quickly.
-
-I try to focus on getting them to explain things to me and asking questions, rather than the drudgery of rote exercises. The computer should be a tool for learning and exploration, driven by the student.
-
-I must confess that I too am tainted with a nostalgia — one of my earliest experiences of programming was in logo and I had fun.
-
-
-SLIDE::	
-	Seymour Papert and turtle
-
-Logo was built by Seymour Papert to create a sort of ‘math world’.His idea was to give people an environment in which to construct their own rules and problems, and try to solve them, rather than a predefined course or structure to work through. Turtle graphics are the canonical example of the ‘math world’. A 2d box to draw in and play.
-
-I’ve seen a similar idea espoused in math education. Currently it is treated as a death march through formulae to be inscribed into your brain, rather than actually trying to solve problems. Learning is more fun and rewarding when you get to be creative about how you go about it.
-
-The other influence for me beyond Papert is ‘view-source’. I learned well from copying others and changing things. Fill in the blank exercises are boring to me, as are stepping through a problem in tiny chunks. I enjoyed taking something and tweaking it and manipulaing it to change the behaviour.
-
-I learned a lot from reading other peoples code and changing it, more than I’ve learned from my own code. Learners need to be able to share and reuse examples easily. Programming is not just explaining things to the computer but working out how things work.
-
-
-SLIDE::
-	my first language
-
-I would start with a relatively useful language from the outset, and by that I mean something::
-    - that they can do something useful or fun within an afternoon. 
-    - their friends know and can help them with. 
-    - relatively easy to install and run.
-    - that doesn’t require navigating an IDE.
-    - that is general purpose.
-
-I would advocate any popular scripting language - Python, Ruby, JavaScript, Lua.
-
-Don’t worry about objects and classes too much. Worry about data structures and algorithms. Get simple functions working to make things happen.
-
-Learning a language should be a side effect of some larger and more interesting goal. People rarely learn languages for their own merits.
-
-
-SLIDE::
-	REAL MEN USE C
-
-
-C is a useful language. Many languages are implemented it it. Much of the libraries and operating system is implemented in it. Unless C is the only option for the project desired, I wouldn’t advocate it as a first language.
-
-I don’t advocate it because it is hard to do anything immediately useful with it, in a small amount of time. Advocates seem to argue that “C is character building”. Great job! Suffering is such a great learning experience!
-
-I would advocate *any* scripting language over C first. Even in the grizzly macho world of unix, people learn shell before they learn C. Using C effectively requires much more knowledge of the operating system.
-
-
-SLIDE::
-	Industry Standards.
-
-Using C# and Java are difficult for vastly different reasons to C. For each of those languages, a simpler scripting language is available on the runtime, with access to the same libraries. 
-
-Understanding Object Orientation requires a good understanding of procedural programming first. Focus on the basics before moving on to developing classes and objects.
-
-Java, C# make better second languages.
-
-People approach learning with caution, and they generalise on the initial experience. Often they learn with a predisposition for giving up - looking for an excuse to move on to something else. You see this all the time on forums - “Hi I am unconfident about my approach and I don’t want to find out the hard way”.
-
-
-SLIDE::
-
-	MATHS EH EH EH
-
-Well, I’d say maths and programming are actually quite related, and the ignorance thereof is where we get things like floating point misconceptions. You need to understand as much mathematics as your program demands, which varies wildly. Not many programs have a high demand of math skills beyond counting. If you can use a spreadsheet, you probably know more than enough to start.
-
-Part of programming is mathematical, not to say that differential geometry is somehow going to be useful, but reasoning about your program requires the same discipline of thought found in mathematics. I’m not saying that programers need to be mathematicians, but /are/ mathematicians (a class of). proofs are programs, innit.
-
-Programming is ultimately an interdisciplinary set of skills: Programmers need to be able to write fluently, have critical reasoning skills, engineering dicipline as well as mathematical reasoning. Often overlooked is one of the most vital skills; Domain experience of the problem you are trying to solve. 
-
-
-
-SLIDE::
-	How do I become a successful programmer?
-
-I'm not qualified to answer this question — I tend to burn out in jobs — but many other programmers I have met have managed to sustain employment and increase pay. I will share with your their winning strategies.
-
-Although you will be forced to document your software, don't be afraid to write ugly prose, and ensure you leave out failure cases, or data types or arguments. Hopefully you will always be too busy to document and test the code. You have important bugs to fix.
-
-Write lots of code. Lots of code. Autocomplete Helps. Use your own ad-hoc naming scheme. Write your own wrappers around standard library functions. Reinvent liberally. Learn to use the advanced features of your ide and language and use them everywhere. Don't be afraid to seperate everything out into modules that only make sense when combined.
-
-Fix problems by creating new ones. Ensure that if you close the bug for now, someone new will re-open it. You can create an equilibrium by constantly shifting the problem around.
-
-Ensure your tests only pass some of the time. Better if only on your machine with some elaborate setup. Become the central point of failure for the development — those who aren’t will be passed over or lose their job.
-
-Job security comes from constant creation of work only you can do. If you act like you are the only programmer and this is the only bug you have, you will go far and be rewarded for your solipsist heroics of sabotaging the product.
-
-
-SLIDE::
-	How about being a good one?
-
-Read code every day. Read other peoples code, in order to learn from someone elses mistakes.
-
-To start with a terrible metaphor - if you met a professional writer you would expect them to be well read — the few I have encountered have a intimidating collection of books.  Before you are expected to write a novel, you should have read some novels. Same goes for code bases.
-
-Yet with programming, much of the education and resources goes into the practice of writing code for the first time, and little towards analysis, debugging or maintenance.  
-
-Programmers often complain that ‘we have to estimate things we’ve never done before’, I cannot help what part of this is due to our institutionalised ignorance of other peoples code and projects.
-
-
-The only other advice I can relay is that you should write code as if it were mistaken, and you will have to change it, again and again. because you will.
-
-Fail fast and repeatedly. It is easier to get something right by getting wrong a couple of times. It is easier to get it wrong a couple of times if you don't write so much code from the outset.
-
-Try and think a little more about how the code will be called than how it works. It is far easier to change implementation over interface.
-
-Don’t be an artist. Don't labour over the ‘right’ way to do things, but don't paint yourself into a corner.  Write code that is easy to replace, rather than extend. 
-
-Bear in mind: It is OK to write ugly code. As long as the things using it don't have to write uglier code to use it.
-
-
-As you get further in programming, you will understand the biggest problems are social, not technical. 
-
-
-SLIDE:
-	A final warning
-
-the software industry is terrible, so is every other industry. retraining won’t help you escape people.
-
-Thank you. Any questions?
-
-
+Thank You.
